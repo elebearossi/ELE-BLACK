@@ -22,6 +22,7 @@ const uranusFisica = $(".uPhys");
 const neptuneFisica = $(".nPhys");
 const plutoFisica = $(".pPhys");
 const ButtBack = $(".ButtBack");
+
 // For physics
 
 let cube;
@@ -417,7 +418,7 @@ for(var i = 0; i<array.length;i++){
   //CLICK SUL PIANETA-------------------------------------------------------------------
   function onClick(event) {
    // renderer.setAnimationLoop(null);
-    let explorer = true;
+     let explorer = true;
     var name = event.target.name.trim(); // get the name of the button
     array.forEach(function(obj) { 
       // loop through array of objects
@@ -796,8 +797,11 @@ for(var i = 0; i<array.length;i++){
       document.getElementById("PlutoInfo").style.display = "none";
       document.getElementById("title").style.display = "none";
       document.getElementById("Back").style.display = "grid";
+      
       const scene2 = new THREE.Scene();
-      const sceneOriginal = new THREE.Scene();
+      let sceneOriginal = new THREE.Scene;
+     sceneOriginal=scene;
+     scene = scene2;
      
       scene.position.set(0,0,0);
       //scene = scene2;
@@ -1154,20 +1158,113 @@ for(var i = 0; i<array.length;i++){
 
 
       document.getElementById('ButtBack').onclick = () => {
-        console.log("ciao");
-        scene = sceneOriginal;
         document.getElementById("rightMenu").style.display = "block";
-        document.getElementById("MercuryInfo").style.display = "none";
-        document.getElementById("VenusInfo").style.display = "none";
-        document.getElementById("EarthInfo").style.display = "none";
-        document.getElementById("MarsInfo").style.display = "none";
-        document.getElementById("JupiterInfo").style.display = "none";
-        document.getElementById("SaturnInfo").style.display = "none";
-        document.getElementById("UranusInfo").style.display = "none";
-        document.getElementById("NeptuneInfo").style.display = "none";
-        document.getElementById("PlutoInfo").style.display = "none";
         document.getElementById("title").style.display = "block";
         document.getElementById("Back").style.display = "none";
+    
+
+        switch(id){
+
+          case 13:
+        
+      document.getElementById("MercuryInfo").style.display = "block";
+      document.getElementById("VenusInfo").style.display = "none";
+      document.getElementById("EarthInfo").style.display = "none";
+      document.getElementById("MarsInfo").style.display = "none";
+      document.getElementById("JupiterInfo").style.display = "none";
+      document.getElementById("SaturnInfo").style.display = "none";
+      document.getElementById("UranusInfo").style.display = "none";
+      document.getElementById("NeptuneInfo").style.display = "none";
+      document.getElementById("PlutoInfo").style.display = "none";
+      
+     
+          case 15:
+            document.getElementById("MercuryInfo").style.display = "none";
+      document.getElementById("VenusInfo").style.display = "block";
+      document.getElementById("EarthInfo").style.display = "none";
+      document.getElementById("MarsInfo").style.display = "none";
+      document.getElementById("JupiterInfo").style.display = "none";
+      document.getElementById("SaturnInfo").style.display = "none";
+      document.getElementById("UranusInfo").style.display = "none";
+      document.getElementById("NeptuneInfo").style.display = "none";
+      document.getElementById("PlutoInfo").style.display = "none";
+          case 17:
+            document.getElementById("MercuryInfo").style.display = "none";
+            document.getElementById("VenusInfo").style.display = "none";
+            document.getElementById("EarthInfo").style.display = "block";
+            document.getElementById("MarsInfo").style.display = "none";
+            document.getElementById("JupiterInfo").style.display = "none";
+            document.getElementById("SaturnInfo").style.display = "none";
+            document.getElementById("UranusInfo").style.display = "none";
+            document.getElementById("NeptuneInfo").style.display = "none";
+            document.getElementById("PlutoInfo").style.display = "none";
+    
+          case 19:
+            document.getElementById("MercuryInfo").style.display = "none";
+            document.getElementById("VenusInfo").style.display = "none";
+            document.getElementById("EarthInfo").style.display = "none";
+            document.getElementById("MarsInfo").style.display = "block";
+            document.getElementById("JupiterInfo").style.display = "none";
+            document.getElementById("SaturnInfo").style.display = "none";
+            document.getElementById("UranusInfo").style.display = "none";
+            document.getElementById("NeptuneInfo").style.display = "none";
+            document.getElementById("PlutoInfo").style.display = "none";
+          
+          case 21:
+            document.getElementById("MercuryInfo").style.display = "block";
+            document.getElementById("VenusInfo").style.display = "none";
+            document.getElementById("EarthInfo").style.display = "none";
+            document.getElementById("MarsInfo").style.display = "none";
+            document.getElementById("JupiterInfo").style.display = "block";
+            document.getElementById("SaturnInfo").style.display = "none";
+            document.getElementById("UranusInfo").style.display = "none";
+            document.getElementById("NeptuneInfo").style.display = "none";
+            document.getElementById("PlutoInfo").style.display = "none";
+          case 23:
+            document.getElementById("MercuryInfo").style.display = "none";
+      document.getElementById("VenusInfo").style.display = "none";
+      document.getElementById("EarthInfo").style.display = "none";
+      document.getElementById("MarsInfo").style.display = "none";
+      document.getElementById("JupiterInfo").style.display = "none";
+      document.getElementById("SaturnInfo").style.display = "block";
+      document.getElementById("UranusInfo").style.display = "none";
+      document.getElementById("NeptuneInfo").style.display = "none";
+      document.getElementById("PlutoInfo").style.display = "none";
+    
+          case 26:
+      document.getElementById("MercuryInfo").style.display = "none";
+      document.getElementById("VenusInfo").style.display = "none";
+      document.getElementById("EarthInfo").style.display = "none";
+      document.getElementById("MarsInfo").style.display = "none";
+      document.getElementById("JupiterInfo").style.display = "none";
+      document.getElementById("SaturnInfo").style.display = "none";
+      document.getElementById("UranusInfo").style.display = "block";
+      document.getElementById("NeptuneInfo").style.display = "none";
+      document.getElementById("PlutoInfo").style.display = "none";
+    
+          case 29:
+            document.getElementById("MercuryInfo").style.display = "none";
+            document.getElementById("VenusInfo").style.display = "none";
+            document.getElementById("EarthInfo").style.display = "none";
+            document.getElementById("MarsInfo").style.display = "none";
+            document.getElementById("JupiterInfo").style.display = "none";
+            document.getElementById("SaturnInfo").style.display = "none";
+            document.getElementById("UranusInfo").style.display = "none";
+            document.getElementById("NeptuneInfo").style.display = "block";
+            document.getElementById("PlutoInfo").style.display = "none";
+    
+          case 31: 
+          document.getElementById("MercuryInfo").style.display = "none";
+          document.getElementById("VenusInfo").style.display = "none";
+          document.getElementById("EarthInfo").style.display = "none";
+          document.getElementById("MarsInfo").style.display = "none";
+          document.getElementById("JupiterInfo").style.display = "none";
+          document.getElementById("SaturnInfo").style.display = "none";
+          document.getElementById("UranusInfo").style.display = "none";
+          document.getElementById("NeptuneInfo").style.display = "none";
+          document.getElementById("PlutoInfo").style.display = "block";
+        }
+    
         flagScene = false;
       }
      
