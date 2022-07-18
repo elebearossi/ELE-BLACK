@@ -1,0 +1,117 @@
+body { margin: 0; }
+canvas { width: 100%; height: 100%; overflow: hidden;};
+
+.title h1 {
+font-family: "Poppins", sans-serif;
+color: whitesmoke;
+font-size: 5rem;
+}
+
+.title  {
+font-family: "Poppins", sans-serif;
+color: whitesmoke;
+margin-left:100px;
+}
+
+.explore{
+cursor: pointer;
+padding: 0.5rem 1rem;
+margin-top: 0;
+border: none;
+border-radius: 3rem;
+font-family: "Poppins", sans-serif;
+font-weight: 500;
+background-color: #0072ff;
+text-transform: uppercase;
+color: whitesmoke;
+transform: translateY(-150px);
+position: center;
+}
+.container{
+margin-left: 40%;
+}
+.navbar{
+margin-left:100px;
+
+}
+button{
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 12px 24px;
+    border: 0;
+    color: #ffffff;
+    background: #ffffff00;
+    line-height: 1.15;
+    font-size: 16px;
+    transform: translateY(-50px);
+    position: center;
+    margin-left: 10px;
+    position: center;
+    
+}
+    button:hover {
+        transition: all .1s ease;
+        box-shadow: 0 0 0 0 #fff, 0 0 0 2px #1d75e9;
+    }
+    /*
+.infobox{
+background-color: rgba(4, 11, 85, 0.571);
+position:absolute;
+color: whitesmoke;
+transform: translateY(-500px);
+width:400px;
+height: 300px;
+margin-left: 30px;
+}	*/	
+
+.infobox button{
+    
+    transform: translatey(300px);
+    position: relative;
+    color: black;
+    align-content: center;
+    margin-left: 25%;
+    bottom: 5%;
+
+
+}
+.content {
+    position: absolute;
+    top: 35%;
+    transform: translatey(-50%);
+    text-align: justify;
+    color: black;
+    padding: 40px;
+    font-family: 'Merriweather', serif;
+  }
+  
+
+
+  
+.infobox  {
+    position: absolute;
+    transform: translateY(-500px);
+    width:300px;
+    height: 350px;
+    margin-left: 30px;
+    background: #f2f2f2c3;
+    overflow: hidden;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 0 20px 8px #d0d0d0;
+  }
+
+  h2 {
+
+  top: 10px;
+    position:relative;
+    /*transform: translateY(-100px);*/
+    text-align: center;
+    font-weight: 250;
+    
+    
+  }
+  
