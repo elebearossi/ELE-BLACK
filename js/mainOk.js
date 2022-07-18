@@ -817,6 +817,137 @@ for(var i = 0; i<array.length;i++){
     let plutoGravity;
     let gravity;
 
+    /* CHARACTER */
+    const loader = new GLTFLoader();
+    let character = new THREE.Object3D();
+    let mesh,skeleton;
+    let arrayOfBones = [];
+
+    
+loader.load(
+  // resource URL
+  'character_final.glb',
+  // called when the resource is loaded
+  function ( gltf ) {
+      //scene.add( gltf.scene );
+      character = gltf.scene;
+      //console.log(character.children[0]);
+      
+      //DEBUG PHASE TO DISCOVER THE BONE OF OUR HIERARCHICAL MODELS 
+      character.traverse( function(child){
+      if(child instanceof THREE.Bone ){
+              arrayOfBones.push(child);
+              //console.log(child.name);
+              //console.log(child.position);
+              //console.log(child.rotation);
+          }
+      });
+
+      //console.log(chest.rotation);
+      //console.log(arrayOfBones);
+      AnimationManager.primarlySet();
+      AnimationManager.idle();
+      AnimationManager.greet();
+      character.scale.set(6,6,6);
+      character.rotation.y += 10;
+      scene.add(character);
+
+  }
+  // called when loading has errors
+);
+class AnimationManager{
+  constructor() {}
+  static primarlySet(){
+      let arm_r = character.getObjectByName('armr_06');
+      let arm_l = character.getObjectByName('arml_017');
+      let forearm_r = character.getObjectByName('forearmr_07');
+      let forearm_l = character.getObjectByName('forearml_018');
+      arm_r.rotation.z = 2.6;
+      arm_l.rotation.z = -2.6;
+      forearm_r.rotation.z = 0.5;
+      forearm_l.rotation.z = -0.5;
+      let tigh_r = character.getObjectByName('tighr_028');
+      let tigh_l = character.getObjectByName('tighl_031');
+      tigh_r.position.z = 1.43;
+      tigh_l.position.z = 1.07;
+      let leg_r = character.getObjectByName('legr_029');
+      let leg_l = character.getObjectByName('legl_032');
+      leg_r.rotation.y = -0.2;   
+  }
+  //Not a very idle
+  static idle(){
+      let head = character.getObjectByName('head_05');
+      let chest = character.getObjectByName('chest_03');
+      let idleAnimation = new TWEEN.Tween(chest.rotation)
+          .to( {x:-0.24},4000)
+          .yoyo(true)
+          .repeat(Infinity)
+          .easing(TWEEN.Easing.Quadratic.InOut)
+          .start()
+      ;
+      let headAnimation = new TWEEN.Tween(head.rotation)
+          .to( {x:3.1},4000)
+          .yoyo(true)
+          .repeat(Infinity)
+          .easing(TWEEN.Easing.Quadratic.InOut)
+          .start()
+      ;
+      
+
+  }
+  static greet(){
+      
+      let arm_r = character.getObjectByName('armr_06');
+      let arm_Animation = new TWEEN.Tween(arm_r.rotation)
+          .to( { x:-1.5, z:1.84,}, 2000)
+          .delay(2000)
+          .easing(TWEEN.Easing.Cubic.InOut)
+      ;
+      let forearm_r = character.getObjectByName('forearmr_07');
+      let greetAnimation = new TWEEN.Tween(forearm_r.rotation)
+          .to( { x:1.44}, 500)
+          .easing(TWEEN.Easing.Cubic.InOut)
+      ; 
+      let greetAnimationReverse = new TWEEN.Tween(forearm_r.rotation)
+          .to( { x:0.5}, 500)
+          .easing(TWEEN.Easing.Cubic.InOut)
+      ;
+
+      arm_Animation.chain(greetAnimation);
+      greetAnimation.chain(greetAnimationReverse);
+      greetAnimationReverse.chain(greetAnimation);
+      arm_Animation.start();
+     
+      /*let forearm_r = character.getObjectByName('forearmr_07');
+      let forearm_Animation= new TWEEN.Tween(forearm_r.rotation)
+          .to( { z:1.84}, 2000)
+          .delay(4000)
+          .yoyo(false)
+          .repeat(1)
+          .easing(TWEEN.Easing.Cubic.InOut)
+          .start()
+      ;*/
+
+      /*console.log(arm_r.rotation.z);
+      while(!(arm_r.rotation.z <= 1.94)){
+          console.log("here?")
+          arm_r.rotation.z -= 0.002;
+      }*/
+  }
+ 
+      /*
+      //character.getObjectByName('armr_06').rotation.z = 0.5;
+      character.children[1].position.x = Math.random()*10;
+      character.children[1].position.y = Math.random()*10;
+      character.children[1].position.z = Math.random()*10;
+      console.log(character.children[0]);
+
+      let arm_r = character.getObjectByName('forearmr_07');
+      arm_r.rotation.z -= 0.08;
+      console.log(arm_r.rotation.x);*/
+}
+
+
     ///////////      STARS EFFECT
 
 
@@ -1405,7 +1536,7 @@ function animate(){
  
 
     if(flagScene){
-        
+        TWEEN.update();
         physicsWorld.step(1/60);
         /*
         cube.position.copy(physicsCube.position);
